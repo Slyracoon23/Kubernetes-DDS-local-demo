@@ -1,5 +1,9 @@
 # In this scenario you'll learn how to use Remotelauncher to run commands and differenet machines 
+## STEP 0
+### Setup requirements
+Make sure you clone the remotelauncher repo to run on your computer
 
+`git clone https://github.com/Slyracoon23/remotelauncher-demo.git`
 ## STEP 1
 ### Build and Deploy the Multi-Docker Environment
 
