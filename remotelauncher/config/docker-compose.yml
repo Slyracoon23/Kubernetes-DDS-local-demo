@@ -1,0 +1,6 @@
+version: "3"
+services:
+  dds-remotelauncher:
+          # command: /app/opt/rtiremotelauncher/bin/rtiremotelauncherd -config /app/opt/rtiremotelauncher/etc/rtiremotelauncher/rtiremotelauncherd.conf
+    image: earlpotters/remotelauncher-clamav:latest
+

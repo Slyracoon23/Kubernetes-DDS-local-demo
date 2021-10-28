@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clamav
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  strategy:
+    # indicate which strategy we want for rolling update
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: clamav
+  template:
+    metadata:
+      labels:
+        app: clamav
+    spec:
+      containers:
+      - name: clamav
+        image: earlpotters/rticlamav:latest
+        command: ["./scan.sh"]
+        # imagePullPolicy: Never
+        volumeMounts:
+        - name: host-fs
+          mountPath: /host-fs/opt
+          readOnly: true
+      terminationGracePeriodSeconds: 5
+      volumes:
+      - name: host-fs
+        hostPath:
+          path: /

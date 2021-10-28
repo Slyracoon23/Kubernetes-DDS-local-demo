@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mcaffe-output
+  labels:
+    app: mcaffe-output
+spec:
+  containers:
+    - name: mcaffe-output
+      image: earlpotters/rti-fluent-bit-plugin
+      command: [ "/bin/bash"]
+      args: ["-c", "while true; do catdelay 250 mcafee.log; sleep 2; done;" ]
+
+
